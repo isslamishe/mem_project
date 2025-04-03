@@ -1,0 +1,322 @@
+
+
+
+.anmationside{
+transition: 1s;
+left: 0;
+display: flex;
+gap: 8vh;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+  overflow: hidden;
+  width: 50%;
+  position: absolute;
+  height: 100%;
+ background-color: #00BFFF ;
+border-radius: 0 120px 120px 0;
+ background-size: cover;
+ background-position: center;
+ background-repeat: no-repeat;
+ 
+  
+}
+.infoside{
+  animation: fadeInUp 0.5s ease forwards;
+  transition: 1s;
+  width: 50%;
+  height: 100%;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  background-color: transparent;
+  z-index: 0;
+}
+.infoside .logininput {
+  width: 40%;
+ 
+  border: 0.5px solid gray;
+  border-radius: 25px;
+  height: 45%;
+ display: flex;
+ overflow: hidden;
+ position: absolute;
+ left: 25%;
+ top: 20%;
+ justify-content: center;
+ padding-bottom: 5%;
+ align-items: center;
+ flex-direction: column;
+ background: rgba(255, 255, 255, 0.3);
+ filter: brightness(1);
+
+}
+.logininput P{
+  font-size: 80%;
+}
+.infoside  input{
+height: 19%;
+max-width: 200px;
+width: 60%;
+background: transparent;
+padding-left: 10px;
+border: 0;
+border-bottom: 2px solid #00BFFF;
+
+}
+
+.inputs{
+  outline: 0;
+  height: 50%;
+width: 100%;
+display: flex;
+justify-self: center;
+justify-items: center;
+align-items: center;
+align-self: self-start;
+flex-direction: column;
+
+transition: 1s;
+
+}
+.infoside .loginbutton{
+  width: 60%;
+  height: 13%;
+  border: 0;
+  cursor: pointer;
+  border-radius: 20PX;
+  font-size: large;
+  font-weight: 600;
+  color: white;
+  background-color: #00BFFF;
+  font-family: cursive;
+}
+.switchbuttons{
+  display: flex;
+  position: absolute;
+  top: 5%;
+  left: 20%;
+  width: 60%;
+  height: 10%;
+  font-family: cursive;
+}
+.switchbuttons button {
+  font-family: cursive;
+  cursor: pointer;
+  border: 1px solid #666666 ;
+  width: 100%;
+  color: #666666;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.538);
+  animation: fadeInUp 0.5s ease forwards;
+  
+}
+.aboutpage{
+  position: absolute;
+  bottom: 10%;
+  left: 20%;
+}
+
+
+
+
+
+
+.anmationside p {
+color: aliceblue;
+max-width: 100%;
+ top: 50%;
+ display: flex;
+ align-items: center;
+ justify-content: center;
+  left: 33%;
+  font-size: 20PX;
+  z-index: 5;
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+
+
+
+
+
+.anmationside .logo {
+ 
+  top: 38%;
+  left: 33%;
+  font-size: 50PX;
+  z-index: 5;
+}
+.anmationside img{
+  position: absolute;
+  height: 20vh;
+  border-radius: 2px;
+  z-index: 0;
+  transition: 3ms;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.sighupinputs{
+  width: 40%;
+ gap: 3vh;
+  border: 0.5px solid gray;
+  border-radius: 25px;
+  height: 70%;
+ display: flex;
+ overflow: hidden;
+ justify-content: center;
+ padding-bottom: 5%;
+ align-items: center;
+ flex-direction: column;
+ background: rgba(255, 255, 255, 0.3);
+ filter: brightness(1);
+}
+.sighupinputs .inputbox {
+width: 100%;
+
+ display: flex;
+ justify-content: center;
+ height: 10%;
+}
+.switchbuttons .loginbutt{
+height: 5vh;
+width: 20vh;
+}
+.switchbuttons .signbutt{
+  height: 5vh;
+  width: 20vh;
+  animation: fadeInUp 0.5s ease forwards;
+  }
+  .sighupinputs .inputbox  {
+   position: relative;
+    display: flex;
+  width: 100%;
+    flex-direction: column;
+   padding-left: 40%;
+   
+  }
+  .sighupinputs .inputbox input{
+    height: 45%;
+  
+  }
+  .signbutton{
+  position: absolute;
+  left: 25%;
+  bottom: 5%;
+width: 50%;
+  height: 8%;
+  border: 0;
+  cursor: pointer;
+  border-radius: 20PX;
+  font-size: large;
+  font-weight: 600;
+  color: white;
+  background-color: #00BFFF;
+  }
+
+.anmationside button{
+background: transparent;
+animation: fadeInUp 0.5s ease forwards;
+bottom: 31%;
+left: 35%;
+color: azure;
+border: 1px solid white;
+border-radius: 20px;
+font-size: 21px;
+width: 21%;
+height: 7%;
+cursor: pointer;
+}
+
+
+
+
+
+.word {
+opacity: 0;
+transform: translateY(10px);
+display: inline-block;
+
+}
+
+@keyframes fadeInUp {
+from {
+  opacity: 0;
+  transform: translateY(10px);
+}
+to {
+  opacity: 1;
+  transform: translateY(0);
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  @media screen and (max-width: 768px) {
+ 
+    .anmationside  {
+      display: none;
+ }
+    .infoside{
+width: 100%;
+display: flex;
+justify-content: center;
+
+align-items: center;
+    }
+    .infoside .logininput{
+      position: relative;
+      top: unset;
+left: unset;
+
+    }
+    .anmationside p {
+
+    }
+  }
+
+
+  @media screen and (max-width : 963px) {
+    .infoside .logininput{
+      width: 60%;
+      position: relative;
+      top: unset;
+left: unset;
+
+    }
+    .sighupinputs{
+      width: 60%;
+    }
+    
+  }
