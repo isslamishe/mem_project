@@ -4,7 +4,7 @@ import Button from '@/components/page1';
 import React, { useEffect, useRef, useState ,useCallback } from 'react';
 
 import { io } from 'socket.io-client';
-const socket = io(process.env.NEXT_PUBLIC_BACKEND_URL || 'http://localhost:4000');
+const socket = io(process.env.NEXT_PUBLIC_BACKEND_URL || 'https://8290e2f1-719d-4741-bb3b-0b75975ea92c-00-2e7aan01o959s.picard.replit.dev/');
 let  userId 
 function MessengerContent() { 
  
@@ -231,7 +231,7 @@ let data = {text,senderID,recipientId:'67ae617c61c9bc5ab660e17b'}
   </div>
 <div className='project_side2'>
   <div className='p_title'>Under Supervision :</div>
-  <div className='profile'><img  src='http://localhost:5000/getpic'/></div>
+  <div className='profile'><img  src='https://8290e2f1-719d-4741-bb3b-0b75975ea92c-00-2e7aan01o959s.picard.replit.dev/getpic'/></div>
   <div><p>Dr.Maatalah</p></div>
   </div>
 
@@ -284,7 +284,7 @@ const menus = [
 
    <div className='Supervision_profile'> 
    <div className='p_title'> Supervision :</div>
-  <div className='profile'><img  src='http://localhost:5000/getpic'/></div>
+  <div className='profile'><img  src='https://8290e2f1-719d-4741-bb3b-0b75975ea92c-00-2e7aan01o959s.picard.replit.dev/getpic'/></div>
   <div><p>Dr.Maatalah</p></div>
    </div>
    <div><p>project objective:</p></div>
@@ -399,7 +399,7 @@ return(
       <div className='project_under_menu'> 
         <div className='box'>
         <div className='p_title'> Supervision :</div>
-          <div className='profile'><img  src='http://localhost:5000/getpic'/></div>
+          <div className='profile'><img  src='https://8290e2f1-719d-4741-bb3b-0b75975ea92c-00-2e7aan01o959s.picard.replit.dev/getpic'/></div>
       <div><p>Dr.Maatalah</p></div>
       </div>
       <div className='box2' >
@@ -575,7 +575,7 @@ async function getContact(id,newId) {
     if (!token) window.location.href = '/login';
    
   
-    const response = await fetch(`http://localhost:5000/API/contacts-with-messages`,{
+    const response = await fetch(`https://8290e2f1-719d-4741-bb3b-0b75975ea92c-00-2e7aan01o959s.picard.replit.dev/API/contacts-with-messages`,{
       headers: { Authorization: `Bearer ${token}` }
     });
     const data = await response.json();
@@ -773,7 +773,7 @@ function changeChatContent(cont){
   
         changeChatContent(sendto.current)
        }}>
-      <div className='profile'><img  src='http://localhost:5000/getpic'/></div>
+      <div className='profile'><img  src='https://8290e2f1-719d-4741-bb3b-0b75975ea92c-00-2e7aan01o959s.picard.replit.dev/getpic'/></div>
       <div className='contect_name'><p>Dr.Maatalah</p></div>
       </button>
   )})}
@@ -836,7 +836,7 @@ if(lsatmsg != msg._id){
 
  async function clc(){
 
-  const res = await fetch('http://localhost:5000/getpic')
+  const res = await fetch('https://8290e2f1-719d-4741-bb3b-0b75975ea92c-00-2e7aan01o959s.picard.replit.dev/getpic')
  
      let data = await res.blob()
    
@@ -852,7 +852,7 @@ if(lsatmsg != msg._id){
 
 <div className='main-header'>
 <div className='profileparent'>
-        <div className='profile'><img  src='http://localhost:5000/getpic'/></div>
+        <div className='profile'><img  src='https://8290e2f1-719d-4741-bb3b-0b75975ea92c-00-2e7aan01o959s.picard.replit.dev/getpic'/></div>
       </div>
 <div className='Logo'><img src='Adobe Express - file.png'/></div>
 

@@ -29,7 +29,7 @@ export default function LoginPage() {
     if (!token) return;
 
     try {
-      const res = await fetch('http://localhost:5000/GetRole', {
+      const res = await fetch('https://8290e2f1-719d-4741-bb3b-0b75975ea92c-00-2e7aan01o959s.picard.replit.dev/GetRole', {
         headers: { Authorization: `Bearer ${token}` }
       });
       if(res.ok)
@@ -71,7 +71,7 @@ export default function LoginPage() {
 
     try {
       const res = await fetch(
-        `http://localhost:5000/login?password=${formData.password}&email=${formData.email}`
+        `https://8290e2f1-719d-4741-bb3b-0b75975ea92c-00-2e7aan01o959s.picard.replit.dev/login?password=${formData.password}&email=${formData.email}`
       );
       console.log(res.ok)
       const data = await res.json();
@@ -92,7 +92,7 @@ export default function LoginPage() {
 
     try {
       const res = await fetch(
-        `http://localhost:5000/signin?FIRST_NAME=${formData.firstName}&LAST_NAME=${formData.lastName}&PASSWORD=${formData.password}&EMAIL=${formData.email}&ROLE=${formData.role}`
+        `https://8290e2f1-719d-4741-bb3b-0b75975ea92c-00-2e7aan01o959s.picard.replit.dev/signin?FIRST_NAME=${formData.firstName}&LAST_NAME=${formData.lastName}&PASSWORD=${formData.password}&EMAIL=${formData.email}&ROLE=${formData.role}`
       );
       if (res.ok) {
         alert('Signup successful! Please login.');
