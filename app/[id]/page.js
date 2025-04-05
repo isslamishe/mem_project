@@ -4,7 +4,7 @@ import Button from '@/components/page1';
 import React, { useEffect, useRef, useState ,useCallback } from 'react';
 
 import { io } from 'socket.io-client';
-const socket = io(process.env.NEXT_PUBLIC_BACKEND_URL || 'https://8290e2f1-719d-4741-bb3b-0b75975ea92c-00-2e7aan01o959s.picard.replit.dev/');
+const socket = io(process.env.NEXT_PUBLIC_BACKEND_URL || 'https://8290e2f1-719d-4741-bb3b-0b75975ea92c-00-2e7aan01o959s.picard.replit.dev');
 let  userId 
 function MessengerContent() { 
  
@@ -116,9 +116,9 @@ let data = {text,senderID,recipientId:'67ae617c61c9bc5ab660e17b'}
 
     socket.emit('send-private-message',(data))
     setInput('');
-    console.log('kiki')
+   
   } else{
-    console.log('jiji')
+
   }
   }
   
@@ -557,7 +557,7 @@ export default function Home(){
   const [status, setStatus] = useState('Connecting...');
   const [contacts, setContacts] = useState([]);
   const userId = useRef('')
-  const [mesCcont, setContactsMesg] = useState([]);
+  const mesCcont = useRef([]);
 
   const sendid = ()=>{
       const token = localStorage.getItem('token');
@@ -585,7 +585,8 @@ console.log(data)
     const messagesMap = data.messages
 
     setContacts(contacts);
-    setContactsMesg(messagesMap);
+     mesCcont.current =  messagesMap;
+     console.log(mesCcont.current)
   } catch  { 
 
     console.log('Failed to fetch:');
@@ -594,6 +595,22 @@ console.log(data)
 }
 
 
+
+
+const handleNewPMessage = useCallback((msg) => {
+  
+  console.log(msg)
+  
+  console.log(mesCcont)
+  mesCcont.current.forEach(async(m)=>{
+   
+    if(msg.sender == m.recipientName){
+      console.log('reseved msg')
+  m.messages.push(msg)
+  
+    }
+  })
+  });
  
 
   useEffect( () => {
@@ -640,7 +657,7 @@ console.log(data)
         
           getContact(userId.current,data.newId)
         })
-        
+        socket.on('new-private-message',handleNewPMessage);
 
         
       },[]);
@@ -666,15 +683,17 @@ console.log('reseved msg')
 console.log(msg)
 
 const openedChat = contacts.find((o)=>{if(o.hashedContactId === sendto.current){return o.recipientName} }).recipientName
-//stoped here
-mesCcont.forEach(async(m)=>{
-console.log(msg)
-  if(msg.sender == m.contactId || msg.recipientId == m.recipientName ){
-    console.log('foooo')
+
+mesCcont.current.forEach(async(m)=>{
+ 
+  if(msg.sender == m.recipientName){
+ 
 m.messages.push(msg)
+
   }
-  if(msg.recipientId === openedChat || msg.sender ==='me'){
-console.log('here')
+  
+  if(msg.recipientId === openedChat || msg.sender === openedChat){
+
 
 
 setMessages(prv=>[...prv,msg])
@@ -687,25 +706,18 @@ setMessages(prv=>[...prv,msg])
 
 
 
-
    useEffect(()=>{
  
     socket.on('new-private-message', handleNewPrivateMessage);
    
-    socket.on('private-message-history', async(history)=>{
-    console.log(history)
-      setMessages(history)
-      
-  
     
-    })
   
    
     
  
     return () => {
       socket.off('new-private-message', handleNewPrivateMessage);
-      socket.off('private-message-history')
+   
      
     };
    },[])
@@ -717,7 +729,7 @@ function changeChatContent(cont){
  const contectName =  contacts.find((o)=>{if(o.hashedContactId === cont){return o.recipientName} }).recipientName
 
 
-  mesCcont.forEach((msg)=>{ 
+  mesCcont.current.forEach((msg)=>{ 
 
   
     if (msg.recipientName === contectName) {
@@ -784,13 +796,13 @@ function changeChatContent(cont){
    {messages.map( (msg)=>{
 
 
+
 if(lsatmsg != msg._id){
   
   lsatmsg = msg._id
   return(
 
-<div key={msg._id} className={`${msg.sender === 'you'||'me'
- ? 'massege_div' : 'recive_massege_div'}`}>
+<div key={msg._id} className={`${msg.sender === 'you'?'massege_div':'recive_massege_div' }`}>
 <p className='massege'>
 {msg.text}
 </p>
